@@ -15,4 +15,16 @@ I then changed `120` to `121`. I expected no alert because the first failure was
 
 **Result:** = Both cases behaved as expected.
 
+## Ubuntu demo test
 
+I ran the SSH monitor on Ubuntu Desktop in VirtualBox using the built-in simulated SSH login failures.
+
+`python3 ~/ssh_monitor.py --demo
+
+**Expected Result** Six matching failed login attempts and one alerted source IP.
+
+**Actual Result** Six matching failed login attempts and one alerted source IP.
+
+This test passed. 
+
+![Ubuntu demo output showing six matching failures and one alerted source](docs/images/ubuntu-demo.png)
