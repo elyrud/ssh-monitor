@@ -34,6 +34,18 @@ class TestDetectBursts(unittest.TestCase):
 
         self.assertEqual(alerts, [])
 
+    def test_failures_from_different_ips_do_not_combine(self):
+        events = [
+            (0, "192.0.2.1"),
+            (20_000_000, "192.0.2.2"),
+            (40_000_000, "192.0.2.1"),
+            (60_000_000, "192.0.2.2"),
+            (80_000_000, "192.0.2.1"),
+        ]
+
+        alerts = list(detect_bursts(events))
+
+        self.assertEqual(alerts, [])
 
 if __name__ == "__main__":
     unittest.main()

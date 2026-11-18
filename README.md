@@ -81,6 +81,8 @@ A fifth failure exactly 120 seconds after the first triggers an alert.
 
 A fifth failure at 121 seconds produces no alert.
 
-Result = All three tests passed
+Failures from different IP addresses are counted separately.
+
+Result = All four tests passed
 
 ![Automated tests passing in the VS Code terminal](docs/images/automated-tests.png)
