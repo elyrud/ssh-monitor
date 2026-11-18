@@ -75,14 +75,15 @@ Run the tests from the project folder:
 On Windows, I used `py` instead of `python` 
 
 The tests check that:
-No alert is produced at four failed logins.
 
-A fifth failure exactly 120 seconds after the first triggers an alert. 
+-No alert is produced at four failed logins.
 
-A fifth failure at 121 seconds produces no alert.
+-A fifth failure exactly 120 seconds after the first triggers an alert. 
 
-Failures from different IP addresses are counted separately.
+-A fifth failure at 121 seconds produces no alert.
 
-Result = All four tests passed
+-Failures from different IP addresses are counted separately.
+
+**Result = All four tests passed**
 
 ![Automated tests passing in the VS Code terminal](docs/images/automated-tests.png)
