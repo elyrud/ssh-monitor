@@ -19,7 +19,7 @@ I then changed `120` to `121`. I expected no alert because the first failure was
 
 I ran the SSH monitor on Ubuntu Desktop in VirtualBox using the built-in simulated SSH login failures.
 
-`python3 ~/ssh_monitor.py --demo
+`python3 ~/ssh_monitor.py --demo`
 
 **Expected Result** Six matching failed login attempts and one alerted source IP.
 
@@ -66,4 +66,21 @@ The connections used the local IPv4 address, 127.0.0.1
 
 Pass. The monitor processed real Ubuntu SSH logs and flagged a source that reached the detection threshold. 
 
+## Automated detection tests
 
+Run the tests from the project folder:
+
+`python -m unittest -v test_ssh_monitor`
+
+On Windows, I used `py` instead of `python` 
+
+The tests check that:
+No alert is produced at four failed logins.
+
+A fifth failure exactly 120 seconds after the first triggers an alert. 
+
+A fifth failure at 121 seconds produces no alert.
+
+Result = All three tests passed
+
+![Automated tests passing in the VS Code terminal](docs/images/automated-tests.png)
