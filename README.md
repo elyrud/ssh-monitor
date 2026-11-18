@@ -87,3 +87,9 @@ The tests check that:
 **Result = All four tests passed**
 
 ![Automated tests passing in the VS Code terminal](docs/images/automated-tests.png)
+
+## Github Actions
+
+Automated tests run on every push and pull request using Python 3.12 on an Ubuntu runner.
+
+The first workflow run was completed successfully with all four tests passing.
