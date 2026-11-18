@@ -28,3 +28,42 @@ I ran the SSH monitor on Ubuntu Desktop in VirtualBox using the built-in simulat
 This test passed. 
 
 ![Ubuntu demo output showing six matching failures and one alerted source](docs/images/ubuntu-demo.png)
+
+## Real SSH login failure test
+
+I tested the monitor using real failed SSH logins on Ubuntu Desktop in VirtualBox.
+
+## Method
+
+I connected to the VM from it's own terminal:
+
+`ssh -4 localhost`
+
+I deliberately entered an incorrect password multiple times, reconnecting after SSH ended each connection. 
+
+I generated at least five failed password attempts within two minutes.
+
+I then passed the last five minutes pf SSH journal entries to the monitor:
+
+`sudo journalctl -u ssh.service --since "5 minutes ago" --output=json --no-pager | python3 ~/Documents/ssh_monitor.py`
+
+## Expected result
+
+The monitor should recognise the failed password attempts and raise an alert when the same IP reaches five failures within 120 seconds.
+
+## Actual Result
+
+Matching Password failures : 9
+Sources Alerted: 1
+
+The five-minute log range included earlier failed attempts.
+
+The connections used the local IPv4 address, 127.0.0.1
+
+![Real SSH log test showing nine matching password failures and one alerted source](docs/images/real-ssh-test.png)
+
+## Outcome
+
+Pass. The monitor processed real Ubuntu SSH logs and flagged a source that reached the detection threshold. 
+
+
