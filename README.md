@@ -14,7 +14,7 @@ Reviewing individual log entries can become time-consuming as activity increases
 
 An alert indictates suspicious activity for review. Failed logins alone do not establish that an account has been compromised. 
 
-## What I learned
+## What I have learnt
 
 Through this project, I practised parsing system logs, validating IP addresses, implementing a sliding time window, writing automated tests and using GitHub Actions to run tests automatically. 
 
