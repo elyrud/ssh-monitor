@@ -92,4 +92,4 @@ The tests check that:
 
 Automated tests run on every push and pull request using Python 3.12 on an Ubuntu runner.
 
-The first workflow run was completed successfully with all four tests passing.
+The first workflow run was completed successfully with all eight tests passing.
