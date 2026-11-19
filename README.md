@@ -1,5 +1,24 @@
+## Project Overview
 
+This python tool analyses Ubuntu SSH logs to identify repeated failed password attempts form the same IP address.It raises a terminal alert when an IP reaches five failures within a rolling 120-second window. 
 
+Repeated failures can indicate password guessing or a legitimate user having difficulty signing in. The alert highlights activity for investigation.
+
+The tool accepts JSON logs from journalctl and includes a demo mode with synthetic login events. It processes the supplied logs and prints alerts alongside a summary of matching failures and the number of sources alerted. 
+
+## Why SSH monitoring matters
+
+SSH provides remote access to systems, making failed login activity useful to monitor. Repeated failures could indicate password guessing, automated login attempts or even a legitimate user having trouble signing in.
+
+Reviewing individual log entries can become time-consuming as activity increases. This tool automates this by grouping failures by source IP address and highlights those that reach five attempts within 120 seconds. This helps an administrator identify activity to investigate.
+
+An alert indictates suspicious activity for review. Failed logins alone do not establish that an account has been compromised. 
+
+## What I learned
+
+Through this project, I practised parsing system logs, validating IP addresses, implementing a sliding time window, writing automated tests and using GitHub Actions to run tests automatically. 
+
+I tested the tool using simulated events and real failed SSH logins on an Ubuntu VM in VirtualBox.
 
 ## Testing
 
